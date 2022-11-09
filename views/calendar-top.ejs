@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>LIST APP</title>
+  <meta name="viewpoint" content="width=device-width">
+  <link rel="stylesheet" href="/css/style-calendar-top.css">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@5categorys[0].name0&family=Varela+Round&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Istok+Web&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=PT+Sans&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <div class="box1">
+    <a href="/"> <i class="fas fa-apple-alt"></i>MY LIST APP</a>
+  </div>
+  <div class="calendar">
+    <div class="calendar-header">
+      <!--今月-->
+      <%var yyyy=ary[0][20].getFullYear()%>
+      <%var mm=ary[0][20].getMonth()+1%>
+      <!--先月-->
+      <%var yyLa=ary[0][20].getFullYear()%>
+      <%var mmLa=("0"+ary[0][20].getMonth()).slice(-2)%>
+      <% if(mmLa==0){%>
+      <%mmLa=12%>
+      <%yyLa-=1%>
+      <%}%>
+      <% var lastMonth=yyLa+'-'+mmLa%>
+      <!--来月-->
+      <%var yyNe=ary[0][20].getFullYear()%>
+      <%var mmNe=("0"+(ary[0][20].getMonth()+2)).slice(-2)%>
+      <% if(mmNe==13){%>
+      <%mmNe=1%>
+      <%yyNe+=1%>
+      <%}%>
+      <% var nextMonth=yyNe+'-'+mmNe%>
+      <div class="btn back-btn"><a href="/calendar/<%=lastMonth%>"><i class="fas fa-angle-double-left"></i>先月</a></div>
+      <div class="calendar-title"><%=yyyy%>年<%=mm%>月</div>
+      <div class="btn next-btn"><a href="/calendar/<%=nextMonth%>">来月<i class="fas fa-angle-double-right"></i></a></div>
+    </div>
+    <div class="calendar-body">
+      <div class="calendar-days">
+        <div class="calendar-day Sun">日</div>
+        <div class="calendar-day Mon">月</div>
+        <div class="calendar-day Tue">火</div>
+        <div class="calendar-day Wed">水</div>
+        <div class="calendar-day Thu">木</div>
+        <div class="calendar-day Fri">金</div>
+        <div class="calendar-day Sat">土</div>
+      </div>
+      <div class="calendar-dates">
+        <% for(var i=0;i<=41;i++){%>
+        <% var dateYear=ary[0][i].getFullYear()%>
+        <% var dateMonth=("0"+(ary[0][i].getMonth()+1)).slice(-2)%>
+        <% var dateMonth1=ary[0][i].getMonth()+1%>
+        <% var dateNumber=ary[0][i].getDate()%>
+        <% var dateDate=("0"+ary[0][i].getDate()).slice(-2)%>
+        <% var dateDay=ary[0][i].getDay()%>
+        <% var dateString=dateYear+"/"+dateMonth1+"/"+dateNumber%>
+        <% var dateData=dateYear+'-'+dateMonth+'-'+dateDate%>
+        <div class="dayBox" data-date="<%=dateData%>" data-date_string="<%=dateString%>">
+          <div class="date-number">
+            <%= dateNumber %>
+          </div>
+          <div class="date-content">
+            <% for(var j=0;j< ary[2][i].length;j++){%>
+              <%var yyyy=ary[2][i][j].end_date.getFullYear()%>
+              <%var mm=("0"+(ary[2][i][j].end_date.getMonth()+1)).slice(-2)%>
+              <%var dd=("0"+ary[2][i][j].end_date.getDate()).slice(-2)%>
+              <%var endDateString= yyyy+"-"+mm+"-"+dd%>
+            <div class="item-name form1 allDay" data-id="<%= ary[2][i][j].id %>" data-name="<%= ary[2][i][j].name %>"  data-date="<%=dateData%>" data-enddate="<%= endDateString %>" data-category="<%= ary[2][i][j].category %>"
+              data-starttime="<%= ary[2][i][j].starttime %>" data-endtime="<%= ary[2][i][j].endtime %>" data-memo="<%= ary[2][i][j].memo %>">
+              <%= ary[2][i][j].name %>
+            </div>
+            <%}%>
+            <% for(var j=0;j< ary[1][i].length;j++){%>
+            <div class="item-name form0" data-id="<%= ary[1][i][j].id %>" data-name="<%= ary[1][i][j].name %>" data-date="<%=dateData%>" data-endDate="<%= ary[1][i][j].end_date %>" data-category="<%= ary[1][i][j].category %>"
+              data-starttime="<%= ary[1][i][j].starttime %>" data-endtime="<%= ary[1][i][j].endtime %>" data-memo="<%= ary[1][i][j].memo %>">
+              <i class="fas fa-circle"></i><%= ary[1][i][j].name %>
+            </div>
+            <%}%>
+          </div>
+          </div>
+       <%}%>
+            <div class="fixed day-schedule">
+              <div class="close-modal"></div>
+              <% for(var i=0;i<=41;i++){%>
+              <% var dateYear=ary[0][i].getFullYear()%>
+              <% var dateMonth=("0"+(ary[0][i].getMonth()+1)).slice(-2)%>
+              <% var dateMonth1=ary[0][i].getMonth()+1%>
+              <% var dateNumber=ary[0][i].getDate()%>
+              <% var dateDate=("0"+ary[0][i].getDate()).slice(-2)%>
+              <% var dateDay=ary[0][i].getDay()%>
+              <% var dateString=dateYear+"/"+dateMonth1+"/"+dateNumber%>
+              <% var dateData=dateYear+'-'+dateMonth+'-'+dateDate%>
+              <div class="modal" data-date="<%=dateData%>">
+                <div class="modal-header">
+                  <div class="modal-title"><%= dateString%></div>
+                  <div class="new-btn"><i class="fas fa-plus"></i></div>
+                </div>
+                <div class="modal-body">
+                  <div class="schedules">
+                    <% var startTime = function(time){ %>
+                      <%if(time.substr(0,5)=="00:00"){%>
+                        <%return ""%>
+                      <%} else if(time.substr(0,1)==0){return time.substr(1,4)}else{return time.substr(0,5)}%>
+                    <%}%>
+                    <% var endTime = function(time){ %>
+                      <%if(time.substr(0,1)==0){return time.substr(1,4)}else{return time.substr(0,5)}%>
+                    <%}%>
+                    <% for(var j=0;j< ary[2][i].length;j++){%>
+                      <%var yyyy=ary[2][i][j].end_date.getFullYear()%>
+                      <%var mm=("0"+(ary[2][i][j].end_date.getMonth()+1)).slice(-2)%>
+                      <%var dd=("0"+ary[2][i][j].end_date.getDate()).slice(-2)%>
+                      <%var endDateString= yyyy+"-"+mm+"-"+dd%>
+                    <div class="schedule form1-schedule" data-id="<%= ary[2][i][j].id %>" data-name="<%=ary[2][i][j].name%>" data-date="<%=dateData%>" data-enddate="<%=endDateString%>" data-category="<%=ary[2][i][j].category%>" data-memo="<%= ary[2][i][j].memo %>" data-form="1">
+                      <div class="schedule-starttime"></div>
+                      <div class="schedule-name"><%= ary[2][i][j].name %></div>
+                      <div class="schedule-edit form1-edit-btn"><i class="fas fa-pen"></i></div>
+                    </div>
+                    <%}%>
+                    <% for(var j=0;j< ary[1][i].length;j++){%>
+                    <div class="schedule" data-id="<%= ary[1][i][j].id %>" data-name="<%=ary[1][i][j].name%>" data-date="<%=dateData%>" data-starttime="<%= ary[1][i][j].starttime%>"
+                      data-endtime="<%= ary[1][i][j].endtime%>" data-category="<%= ary[1][i][j].category%>" data-memo="<%= ary[1][i][j].memo %>" data-form="0">
+                      <div class="schedule-starttime"><%= startTime(ary[1][i][j].starttime) %></div>
+                      <div class="schedule-name"><%= ary[1][i][j].name %></div>
+                      <div class="schedule-edit form2-edit-btn"><i class="fas fa-pen"></i></div>
+                    </div>
+                    <%}%>
+                </div>
+                <div class="details">
+                  <% for(var j=0;j< ary[2][i].length;j++){%>
+                    <%var mm=ary[2][i][j].end_date.getMonth()+1%>
+                    <%var dd=ary[2][i][j].end_date.getDate()%>
+                    <%var endDateStr= mm+"/"+dd%>
+                  <div class="detail form1-detail">
+                    <div class="detail-date"><%=dateMonth1+"/"+dateNumber%><i class="fas fa-chevron-right"></i><%=endDateStr%></div>
+                    <div class="detail-memo">
+                      <% var memoContent = function(memo){ %>
+                        <%if(memo==""){%>
+                          <%return "NO DETAIL"%>
+                        <%}else{return memo}%>
+                      <%}%>
+                      <%= memoContent(ary[2][i][j].memo)%>
+                    </div>
+                      <form class="schedule-delete" action="/schedule-delete/<%=ary[2][i][j].id%>" method="post">
+                        <label><input type="submit"><i class="fas fa-trash-alt"></i></label>
+                      </form>
+                  </div>
+                  <%}%>
+                  <% for(var j=0;j< ary[1][i].length;j++){%>
+                  <div class="detail">
+                    <%if(ary[1][i][j].form==2){%>
+                      <div class="detail-time"><%= startTime(ary[1][i][j].starttime) %><i class="fas fa-chevron-right"></i><%= endTime(ary[1][i][j].endtime) %></div>
+                  <%}else{%>
+                      <div class="detail-time"><%= startTime(ary[1][i][j].starttime) %></div>
+                  <%}%>
+
+                    <div class="detail-memo">
+                      <% var memoContent = function(memo){ %>
+                        <%if(memo==""){%>
+                          <%return "NO DETAIL"%>
+                        <%}else{return memo}%>
+                      <%}%>
+                      <%= memoContent(ary[1][i][j].memo)%>
+                    </div>
+                    <form class="schedule-delete" action="/schedule-delete/<%=ary[1][i][j].id%>" method="post">
+                      <label><input type="submit"><i class="fas fa-trash-alt"></i></label>
+                    </form>
+                  </div>
+                  <%}%>
+                </div>
+              </div>
+              <div class="chenge-modal next-modal"><i class="fas fa-angle-double-right"></i></div>
+              <div class="chenge-modal prev-modal"><i class="fas fa-angle-double-left"></i></div>
+            </div>
+            <%}%>
+                    <div class="form-background-left">
+                      <div class="form-left">
+                        <div class="form-line-left"></div>
+                      </div>
+                    </div>
+                    <div class="form-background-right">
+                      <div class="form-right">
+                        <div class="form-line-right"></div>
+                      </div>
+                    </div>
+                    <div class="form">
+                      <form class="parent-form" method="post">
+                        <div class="form-header">
+                          <input class="form-control column-name" type="text" name="scheduleName">
+                          <div class="form-back"><i class="fas fa-times"></i></div>
+                          <div class="form-select"><span>ALLDAY</span>
+                            <div class="select-btn">
+                              <i class="fas fa-circle"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-date"><label>DATE ：</label>
+                          <input class="form-control column-date column-startDate" type="date" name="scheduleDate">
+                        </div>
+                        <div class="form-endDate"><label>END ：</label>
+                          <input class="form-control column-date column-endDate" type="date" name="scheduleEndDate">
+                        </div>
+                        <div class="form-time"><label>TIME ：</label>
+                          <input class="form-control column-starttime" type="time" name="scheduleStime"><span class="endtime">　〜　
+                          <input class="form-control column-endtime" type="time" name="scheduleEtime"></span><i class="far fa-calendar-minus"></i><i class="far fa-calendar-plus"></i>
+                        </div>
+                        <div class="form-category"><span>CATEGORY：</span>
+                          <div class="category-btn">SELECT<i class="fas fa-angle-double-right"></i></div>
+                        </div>
+                        <div class="category-modal">
+                          <div class="category-content">
+                          <div class="category-title">- - - -  <span>C</span>ategory  - - - - </div>
+                          <div class="category-edit-btn"><i class="fas fa-edit"></i></div>
+                          <%var categoryName=function(name){%>
+                            <%if(name==""){return "no setting"}else{return name}%>
+                          <%}%>
+                          <div class="categorys category0"><span class="category-left"></span><label><input type="radio" name="scheduleCategory" value="0"><%= categoryName(categorys[0].category0)%></label><span class="category-check"><i class="fas fa-check"></i></span></div>
+                          <div class="categorys category1"><span class="category-left"></span><label><input type="radio" name="scheduleCategory" value="1"><%=categoryName(categorys[0].category1)%></label><span class="category-check"><i class="fas fa-check"></i></span></div>
+                          <div class="categorys category2"><span class="category-left"></span><label><input type="radio" name="scheduleCategory" value="2"><%= categoryName(categorys[0].category2)%></label><span class="category-check"><i class="fas fa-check"></i></span></div>
+                          <div class="categorys category3"><span class="category-left"></span><label><input type="radio" name="scheduleCategory" value="3"><%= categoryName(categorys[0].category3)%></label><span class="category-check"><i class="fas fa-check"></i></span></div>
+                          <div class="categorys category4"><span class="category-left"></span><label><input type="radio" name="scheduleCategory" value="4"><%= categoryName(categorys[0].category4)%></label><span class="category-check"><i class="fas fa-check"></i></span></div>
+                          <div class="categorys category5"><span class="category-left"></span><label><input type="radio" name="scheduleCategory" value="5"><%= categoryName(categorys[0].category5)%></label><span class="category-check"><i class="fas fa-check"></i></span></div>
+                          <div class="categorys category6"><span class="category-left"></span><label><input type="radio" name="scheduleCategory" value="6"><%= categoryName(categorys[0].category6)%></label><span class="category-check"><i class="fas fa-check"></i></span></div>
+                          <div class="categorys category7"><span class="category-left"></span><label><input type="radio" name="scheduleCategory" value="7"><%= categoryName(categorys[0].category7)%></label><span class="category-check"><i class="fas fa-check"></i></span></div>
+                          <div class="categorys category8"><span class="category-left"></span><label><input type="radio" name="scheduleCategory" value="8"><%= categoryName(categorys[0].category8)%></label><span class="category-check"><i class="fas fa-check"></i></span></div>
+                          <div class="category-ok-btn">O K<i class="fas fa-angle-double-right"></i></div>
+                        </div>
+
+                        </div>
+                        <div class="form-memo">
+                          <label for="form_memo">MEMO：</label>
+                          <input class="form-control column-memo" type="textarea" name="scheduleMemo" id="form_memo">
+                        </div>
+                        <input class="column-form" type="number" name="scheduleForm">
+                        <div class="form-submit"><input type="submit"></div>
+
+                      </form>
+                      <form class="category-edit" action="/category-edit" method="post">
+                        <div class="category-edit-content">
+                        <div class="category-title">- - - -  <span>C</span>ategory Edit - - - - </div>
+                        <div class="category-back-btn"><i class="far fa-times-circle"></i></div>
+                        <div class="categorys category0"><span class="category-left"></span><input class="column-category" type="text" name="category0" value="<%= categorys[0].category0%>" placeholder="no setting"></div>
+                        <div class="categorys category1"><span class="category-left"></span><input class="column-category" type="text" name="category1" value="<%= categorys[0].category1%>" placeholder="no setting"></div>
+                        <div class="categorys category2"><span class="category-left"></span><input class="column-category" type="text" name="category2" value="<%= categorys[0].category2%>" placeholder="no setting"></div>
+                        <div class="categorys category3"><span class="category-left"></span><input class="column-category" type="text" name="category3" value="<%= categorys[0].category3%>" placeholder="no setting"></div>
+                        <div class="categorys category4"><span class="category-left"></span><input class="column-category" type="text" name="category4" value="<%= categorys[0].category4%>" placeholder="no setting"></div>
+                        <div class="categorys category5"><span class="category-left"></span><input class="column-category" type="text" name="category5" value="<%= categorys[0].category5%>" placeholder="no setting"></div>
+                        <div class="categorys category6"><span class="category-left"></span><input class="column-category" type="text" name="category6" value="<%= categorys[0].category6%>" placeholder="no setting"></div>
+                        <div class="categorys category7"><span class="category-left"></span><input class="column-category" type="text" name="category7" value="<%= categorys[0].category7%>" placeholder="no setting"></div>
+                        <div class="categorys category8"><span class="category-left"></span><input class="column-category" type="text" name="category8" value="<%= categorys[0].category8%>" placeholder="no setting"></div>
+                        <div class="category-set-btn"><input class="category-submit" type="submit" value="SET"><i class="fas fa-angle-double-right"></i></div>
+                        </div>
+                      </form>
+                      <div class="category-change-right"></div>
+                      <div class="category-change-left"></div>
+                      <div class="close close-top"></div>
+                      <div class="close close-bottom"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <script src="/script/script-calendar.js">
+
+            </script>
+</body>
+
+</html>

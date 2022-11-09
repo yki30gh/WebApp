@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>LIST APP</title>
+  <meta name="viewpoint" content="width=device-width">
+  <link rel="stylesheet" href="/css/style-shop-search.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Varela+Round&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="box1">
+    <a href="/"> <i class="fas fa-apple-alt"></i>MY LIST APP</a><i class="fas fa-bars"></i>
+  </div>
+  <div class="boxB">
+    <div class="back">
+      <a href="/task-shop-index"><i class="far fa-hand-point-left"></i>BACK</a>
+    </div>
+    <div class="boxA">
+      <div class="header">
+        <span><i class="fas fa-shopping-cart"></i></span>SHOP LIST
+        <a href="/task-shop-index"><i class="fas fa-search"></i>OFF</a>
+      </div>
+      <div class="body">
+        <ul>
+          <% shoplists.forEach((shoplist) => { %>
+          <li>
+            <div class="data">
+              <span class="name-column"><i class="fas fa-caret-right"></i><%= shoplist.name %></span>
+              <span class="category-column"><%= shoplist.category %></span>
+            </div>
+            <div class="menu">
+              <form action="/shop-search-delete/<%= shoplist.id %>" method="post">
+                <input class="delete" type="submit" value="削除">
+              </form>
+              <a class="edit" href="/shop-edit/<%= shoplist.id %>">編集</a>
+            </div>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+  <script src="/script/script-task-shop.js"></script>
+</body>

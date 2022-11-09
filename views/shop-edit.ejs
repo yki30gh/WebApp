@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>LIST APP</title>
+  <meta name="viewpoint" content="width=device-width">
+  <link rel="stylesheet" href="/css/style-shop-edit.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Varela+Round&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="box1">
+    <a href="/"> <i class="fas fa-apple-alt"></i>MY LIST APP</a><i class="fas fa-bars"></i>
+  </div>
+  <div class="boxB">
+    <div class="back">
+      <a href="/task-top"><i class="far fa-hand-point-left"></i>BACK</a>
+    </div>
+    <div class="boxA">
+      <div class="header">
+        <span><i class="fas fa-shopping-cart"></i></span>SHOP LIST<span class="new"><i class="fas fa-plus"></i>新規作成</span>
+      </div>
+      <div class="body">
+        <div class="edit">
+          <div class="modal">
+            <div class="close-modal">
+              <a href="/task-shop-index"><i class="fa fa-2x fa-times"></i></a>
+            </div>
+            <h2>リスト編集</h2>
+            <form action="/shop-update/<%= shoplist.id %>" method="post">
+              <input class="form-control" type="text" name="shoplistName" value="<%= shoplist.name %>">
+              <input class="form-control" type="text" name="shoplistCategory" value="<%= shoplist.category %>">
+              <input class="submit" type="submit" value="更新する">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="/script/script-task-shop.js"></script>
+</body>

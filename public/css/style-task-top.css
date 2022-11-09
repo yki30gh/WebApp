@@ -1,0 +1,100 @@
+/*レイアウト*/
+*{
+  box-sizing: border-box;
+}
+body{
+  background-image:url(/images/background/423582_m.jpg);
+  background-position: center;
+  background-size: cover;
+}
+/*タイトルlogo*/
+.box1{
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  border-bottom: solid 1px black;
+  background-color: rgba(255,255,255,0.8);
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.box1 a{
+  text-decoration: none;
+  color: black;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+}
+.fa-apple-alt{
+  padding-right: 6px;
+}
+.fa-bars{
+  float: right;
+  font-size: 15px;
+  cursor: pointer;
+  padding-right:6px;
+  padding-top:5px;
+}
+/*list一覧*/
+.boxA{
+  height: 400px;
+  padding-top:50px;
+  padding-bottom: 50px;
+  padding: 50px 15%;
+}
+.box2{
+  transition: all 0.2s;
+  height:100px;
+  background-color: rgba(255,255,255,0.7);
+  margin:10% 0;
+  border-radius: 10px;
+  box-shadow: 0 0 3px #696969;
+}
+.box2::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+span{
+  display: block;
+  float: left;
+  width:14%;
+  height:100px;
+  line-height: 100px;
+  background-image: url(/images/icon-image/01.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px 0 0 10px;
+  text-align: center;
+}
+.box2 i{
+  color: white;
+  font-size: 27px;
+}
+.box2 a{
+  transition: all 0.2s;
+  display:block;
+  float: left;
+  padding-left: 15px;
+  width:86%;
+  height: 100px;
+  line-height: 100px;
+  border-radius:0 10px 10px 0;
+  text-decoration: none;
+  background-color: rgba(255,255,255,0.6);
+  font-size: 27px;
+  color: black;
+  font-family: 'Questrial', sans-serif;
+}
+.shop a:hover{
+  background-color: rgba(0,128,128,0.2);
+  color: white;
+  text-shadow: 0 0 3px black;
+}
+.to-do a:hover{
+  background-color: rgba(0,128,128,0.2);
+  color: white;
+  text-shadow: 0 0 3px black;
+}

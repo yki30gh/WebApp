@@ -1,0 +1,903 @@
+/*レイアウト*/
+*{
+  box-sizing: border-box;
+}
+body{
+  background-image:url(/images/background/423582_m.jpg);
+  background-position: center;
+  background-size: cover;
+  margin:0;
+}
+/*-----------タイトルlogo----------*/
+.box1{
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  border-bottom: solid 1px black;
+  background-color: rgba(255,255,255,0.8);
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  z-index: 1000;
+}
+.box1 a{
+  text-decoration: none;
+  color: black;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 15px;
+}
+.fa-apple-alt{
+  padding-right: 6px;
+}
+.fa-bars{
+  float: right;
+  font-size: 15px;
+  cursor: pointer;
+  padding-right:6px;
+  padding-top:5px;
+}
+/*＊＊＊＊＊＊＊＊＊＊＊＊カレンダー＊＊＊＊＊＊＊＊＊＊＊*/
+.calendar{
+  width:100%;
+  height:900px;
+  padding: 100px 60px;
+  background-color: rgba(255,255,255,0.7);
+}
+/*ーーーーーーーーheaderーーーーーーーー*/
+.calendar-header{
+  height:70px;
+  position: relative;
+}
+.btn{
+  transition: all 0.4s;
+  color: rgba(43, 43, 43, 0.8);
+  font-size: 14px;
+  padding-bottom: 2px;
+}
+.btn:hover{
+  font-size: 15px;
+}
+.btn:active{
+  font-size: 13px;
+}
+.back-btn{
+  position: absolute;
+  bottom: 8px;
+  left: 5%;
+  cursor: pointer;
+}
+.btn a{
+  text-decoration: none;
+  color: #555555;
+  font-family: 'M PLUS 1p', sans-serif;
+}
+.back-btn i{
+  padding-right:6px;
+}
+.next-btn{
+  position: absolute;
+  bottom: 8px;
+  right: 5%;
+  cursor: pointer;
+  text-align: right;
+}
+.next-btn i{
+  padding-left: 6px;
+}
+.calendar-title{
+  line-height: 70px;
+  text-align: center;
+  font-size: 30px;
+  font-family: 'Kosugi Maru', sans-serif;
+  letter-spacing: 5px;
+  color: #474a4d;
+}
+
+
+/*ーーーーーーーーweekーーーーーーーー*/
+.calendar-days{
+  padding: 5px 0;
+  border-top: solid 1px black;
+  border-bottom: solid 1px black;
+  background-color: rgba(255,255,255,0.7);
+}
+.calendar-days::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.calendar-day{
+  float: left;
+  width:14.2857143%;
+  text-align: center;
+  font-family: 'M PLUS 1p', sans-serif;
+  color: #555555;
+}
+
+/*ーーーーーーーーbodyーーーーーーーー*/
+/*************dayBox**********/
+.calendar-dates{
+  display: none;
+  background-color: rgba(255,255,255,0.4);
+}
+.calendar-dates::after{
+  content: '';
+  display: block;
+  clear: both;
+}
+.dayBox{
+  transition:all 0.2s;
+  float: left;
+  width:14.2857143%;
+  height:100px;
+  border-bottom: solid 1px #999999;
+  color: #333333;
+  overflow:hidden;
+}
+.dayBox:hover{
+  background-color: rgba(0,0,0,0.2);
+}
+.date-number{
+  text-align: center;
+  font-size: 13px;
+  padding: 4px 0;
+}
+
+.item-name{
+  font-size: 10px;
+  height:15px;
+  width:100%;
+  text-align: center;
+  font-family: 'M PLUS 1p', sans-serif;
+  color: #444444;
+  white-space: nowrap;
+}
+.allDay{
+  margin-bottom: 1px;
+}
+.item-name i{
+  padding-right: 4px;
+  font-size: 2px;
+}
+.Sun {
+  color: #d7003a;
+}
+.Sat{
+  color: #1e50a2;
+}
+.other-month{
+  color: #999999;
+  opacity: 0.6;
+}
+/***********DAYスケジュール**********/
+.fixed{
+  display:none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left:0;
+}
+.close-modal{
+  position: absolute;
+  top:0;
+  right:0;
+  bottom: 0;
+  left:0;
+  z-index: 2;
+  background-color: rgba(255,255,255,0.4);
+}
+.chenge-modal{
+  transition:0.6s;
+  position: absolute;
+  top:0;
+  height:480px;
+  width:100px;
+  z-index: 5;
+  background-color: rgba(255,255,255,0);
+  text-align: center;
+  line-height: 480px;
+  border-radius: 5px;
+}
+.next-modal{
+  right:-95px;
+}
+.prev-modal{
+  left:-95px;
+}
+.chenge-modal i{
+  font-size: 50px;
+   transform   : scale(1, 2.0);
+   color: rgba(0,0,0,0.2);
+}
+.modal{
+  display:none;
+  position: fixed;
+  top:50%;
+  left:50%;
+  height:480px;
+  width:550px;
+  margin-left:-275px;
+  margin-top:-240px;
+  background-color:rgba(0,0,0,0.7);
+  box-shadow: 0 0 4px #696969;
+  border-radius: 3px;
+  padding: 10px 20px;
+  z-index: 6;
+}
+.modal-header{
+  position: relative;
+  height:60px;
+  text-align: center;
+  color: white;
+  border-bottom: solid 2px white;
+}
+.modal-title{
+  letter-spacing: 8px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  line-height: 60px;
+  font-size: 21px;
+}
+.new-btn{
+  transition: all 0.3s;
+  position: absolute;
+  bottom: 10px;
+  right:0;
+  height: 40px;
+  width:40px;
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 20px;
+  cursor: pointer;
+}
+.new-btn:hover{
+  background-color: rgba(255,255,255,0.4);
+}
+.new-btn:active{
+  opacity: 0.7;
+}
+.new-btn i{
+  line-height: 40px;
+  font-size: 16px;
+}
+.modal-body{
+  padding: 30px 20px;
+  height:360px;
+}
+.modal-body::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.schedules{
+  float: left;
+  width: 50%;
+  height:300px;
+  background-color: white;
+  border-radius: 2px;
+  padding: 10px 0;
+}
+.schedule{
+  transition: 0.1s;
+  height:31px;
+  margin: 5px 0;
+  padding: 3px 0;
+  cursor: pointer;
+
+}
+.schedule::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.schedule:hover{
+  background-color: rgba(0,0,0,0.2);
+}
+.schedule-starttime{
+  float: left;
+  width:22%;
+  height:25px;
+  text-align: center;
+  font-family: 'PT Sans Narrow', sans-serif;
+  line-height: 25px;
+  padding-top: 1px;
+}
+.schedule-name{
+  float: left;
+  height:25px;
+  width:63%;
+  padding-left:10px;
+  font-family: 'M PLUS 1p', sans-serif;
+  line-height: 25px;
+  font-size: 13px;
+}
+.schedule-edit{
+  float: left;
+  width:15%;
+  height:25px;
+  text-align: right;
+  padding-right: 10px;
+  line-height: 25px;
+  font-size: 14px;
+  cursor: pointer;
+}
+/*スケジュール詳細*/
+.details{
+  float: left;
+  width:50%;
+  padding: 10px 0 10px 20px;
+  color: white;
+}
+.detail{
+  display: none;
+  position: relative;
+}
+.detail-time{
+  font-size: 20px;
+  font-family: 'PT Sans', sans-serif;
+}
+.detail-time i{
+  padding:0 10px;
+  font-size: 16px;
+}
+.detail-date{
+  font-size: 20px;
+  font-family: 'PT Sans', sans-serif;
+  letter-spacing: 7px;
+}
+.detail-date i{
+  padding: 10px;
+  font-size: 16px;
+}
+
+.schedule-delete{
+  position: absolute;
+  top:5px;
+  right:0;
+}
+.schedule-delete i{
+  font-size: 20px;
+}
+.schedule-delete input{
+  display: none;
+}
+.schedule-delete label{
+  cursor: pointer;
+}
+/**********フォーム**********/
+.form-background-left{
+  transition: all 0.9s;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-left:-275px;
+  margin-top:-240px;
+  height:480px;
+  width:0;
+  background-color: rgba(255,255,255,0.2);
+  z-index: 10;
+}
+.form-left{
+  position:absolute;
+  left: 0;
+  top:100px;
+  height:280px;
+  width:200%;
+  z-index: 12;
+}
+.form-line-right{
+  position:absolute;
+  left: 0;
+  background-color: rgba(255,255,255,0.8);
+  top:15px;
+  height:32px;
+  width:100%;
+  z-index: 13;
+}
+.form-background-right{
+  transition: all 0.7s;
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  margin-right:-275px;
+  margin-top:-240px;
+  height:480px;
+  width:0;
+  background-color: rgba(255,255,255,0.2);
+  z-index: 10;
+}
+.form-right{
+  position:absolute;
+  right: 0;
+  top:100px;
+  height:280px;
+  width:200%;
+  z-index: 12;
+}
+.parent-form{
+  transition: all 0.6s;
+  display:none;
+  position: fixed;
+  top: 50%;
+  left:50%;
+  margin-left:-275px;
+  margin-top:-140px;
+  height:280px;
+  width:550px;
+  z-index: 15;
+  padding: 10px 0;
+}
+.form-control{
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  border: none;
+  height:25px;
+  padding: 0 10px;
+}
+.form{
+  padding: 10px;
+  font-family: 'Istok Web', sans-serif;
+  color: white;
+}
+.form .fa-caret-right{
+  padding-left: 10px;
+  opacity: 0.7;
+}
+.form label{
+  display: inline-block;
+  padding: 5px 10px;
+  text-align: center;
+}
+/**新規作成（タイトル）**/
+.form-header{
+  padding:5px 5px 5px 15px;
+}
+.column-name{
+  background-color: rgba(255,255,255,0);
+  width:200px;
+  height:30px;
+  padding: 0 15px;
+  font-size: 15px;
+  letter-spacing:4px;
+}
+.form-select{
+  float: right;
+  height: 32px;
+  width:104px;
+}
+.form-select::after{
+  content:"";
+  clear: both;
+}
+.form-select span{
+  display: block;
+  float: left;
+  line-height: 32px;
+  font-size: 14px;
+}
+.select-btn{
+  transition: 0.5s;
+  position: relative;
+  display:block;
+  float: left;
+  font-size: 14px;
+  height: 22px;
+  width:40px;
+  margin:5px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+.select-btn i{
+  transition: 0.5s;
+  display: block;
+  position: absolute;
+  top:1px;
+  left: 2px;
+  font-size: 16px;
+}
+.selected i{
+  left: 18px;
+  color: white;
+}
+.create-select .selected{
+  background-color: rgba(0, 167, 179,1);
+}
+.edit-select .selected{
+  background-color: rgba(200, 81, 121,1);
+}
+.form-delete{
+  display: inline-block;
+  float: right;
+  width:35px;
+  text-align: center;
+  line-height: 32px;
+}
+.form-delete{
+  display: none;
+  position: absolute;
+  right:30px;
+  top:115px;
+  z-index: 20;
+}
+.form-delete button{
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.form-delete i{
+  color: rgba(200, 81, 121,1);
+  font-size: 18px;
+}
+
+.form-back{
+  display: inline-block;
+  cursor: pointer;
+  width:30px;
+  font-size: 18px;
+  float: right;
+  text-align: center;
+  line-height: 32px;
+}
+/**新規作成（日付）**/
+.form-date{
+  padding: 10px 20px 5px 20px;
+}
+.form-date label{
+  width:30%;
+}
+.form-date input{
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+.form-endDate{
+  display: none;
+  padding: 5px 20px;
+}
+.form-endDate label{
+  width:30%;
+}
+.form-endDate input{
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+/**新規作成（時間）**/
+.form-time{
+  position: relative;
+  padding: 5px 20px;
+}
+.form-time label{
+  width:30%;
+}
+.form-time input{
+  color: white;
+  font-family: 'PT Sans Narrow', sans-serif;
+}
+.form input{
+  font-family: 'M PLUS 1p', sans-serif;
+}
+.endtime{
+  display: none;
+}
+.fa-calendar-minus{
+  opacity:0;
+  transition: 0.5s;
+  position: absolute;
+  font-size: 23px;
+  top:10px;
+  right:250px;
+  cursor: pointer;
+}
+.fa-calendar-plus{
+  opacity: 1;
+  transition: 0.5s;
+  position: absolute;
+  font-size: 23px;
+  top:10px;
+  right:250px;
+  cursor: pointer;
+}
+.form-time i:hover{
+
+}
+/**新規作成（カテゴリ）**/
+.form-category{
+  padding: 5px 20px;
+}
+.form-category span{
+  display: inline-block;
+  width:30%;
+  height:40px;
+  text-align: center;
+  line-height: 40px;
+}
+.category-btn{
+ transition: 0.3s;
+ display: inline-block;
+ font-size: 14px;
+ padding-left: 10px;
+ font-family: 'M PLUS Rounded 1c', sans-serif;
+ cursor: pointer;
+}
+.category-btn:hover{
+  color:rgba(255,255,255,0.4);
+  font-size: 16px;
+  padding-left: 8px;
+}
+.category-btn:active{
+  color:rgba(255,255,255,0.4);
+  font-size: 14px;
+}
+.category-btn i{
+  padding-left: 10px;
+}
+.category-modal{
+  transition:0.4s;
+  opacity: 0;
+  position: fixed;
+  background-image: url(/images/background/chair_plants_heater.jpg);
+  background-size: cover;
+  top:50%;
+  left: 50%;
+  height:0;
+  width:0;
+  z-index: 30;
+}
+.category-modal-open{
+  opacity: 1;
+  margin-top:-115px;
+  margin-left: -275px;
+  height: 230px;
+  width:550px;
+}
+.category-content{
+  display: none;
+  background-color: rgba(255,255,255,0.7);
+  width:100%;
+  height:100%;
+  padding:80px 30px 10px 50px;
+}
+.category-modal input{
+ display: none;
+}
+.category-title{
+  position: absolute;
+  top: 0;
+  left:0;
+  padding: 20px;
+  color: #888888;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 30px;
+}
+.category-edit-btn,.category-back-btn{
+  position: absolute;
+  top: 25px;
+  right:20px;
+  color: #888888;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 25px;
+  cursor: pointer;
+}
+.category-edit{
+  display: none;
+  position: fixed;
+  top:50%;
+  left: 50%;
+  margin-top:-115px;
+  margin-left: -275px;
+  height: 230px;
+  width:550px;
+  z-index: 40;
+}
+.category-edit-content{
+  width:100%;
+  height:100%;
+  padding:80px 30px 10px 50px;
+}
+.column-category{
+  position: absolute;
+  top:5px;
+  left: 15px;
+  height:26px;
+  width:130px;
+  padding-left: 10px;
+  cursor: pointer;
+  border: none;
+  color: #666666;
+  font-size: 13px;
+  background-color: rgba(255,255,255,0);
+}
+.category-ok-btn,.category-set-btn{
+  transition: 0.2s;
+  position: absolute;
+  bottom: 17px;
+  right:25px;
+  color: #888888;
+  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+}
+.category-submit{
+  background-color: rgba(255,255,255,0);
+  border:none;
+  font-size: 20px;
+  color: #888888;
+}
+.category-ok-btn i,.category-set-btn i{
+  padding-left: 10px;
+}
+.category-ok-btn:hover{
+  font-size: 25px;
+  bottom: 20px;
+  right:20px;
+}
+.category-left{
+  transition: 0.4s;
+  position: absolute;
+  display: block;
+  top:8px;
+  left: 0;
+  width:5px;
+  height:20px;
+  border-radius: 10px;
+}
+.category-check{
+  opacity: 0;
+  transition: 0.4s;
+  position: absolute;
+  top:1px;
+  right: 30px;
+  width:5px;
+  height:36px;
+  line-height: 36px;
+}
+
+.categorys label{
+  transition: 0.4s;
+  position: absolute;
+  display: block;
+  top:0px;
+  left: 15px;
+  height:36px;
+  line-height: 38px;
+  padding: 0 0 0 10px;
+  cursor: pointer;
+}
+.category0 .category-left{
+  color: #45cc8b;
+  background-color: #45cc8b;
+}
+.category3 .category-left{
+  color: #00ccbb;
+  background-color: #00ccbb;
+}
+.category6 .category-left{
+  color: #00c3e6;
+  background-color: #00c3e6;
+}
+.category7 .category-left{
+  color:#eb99ff;
+  background-color: #eb99ff;
+}
+.category8 .category-left{
+  color: #555555;
+  background-color: #555555;
+}
+.category1 .category-left{
+  color: #ff6670;
+  background-color: #ff6670;
+}
+.category4 .category-left{
+  color:#ff80b7;
+  background-color: #ff80b7;
+}
+.category2 .category-left{
+  color: #ffa333;
+  background-color: #ffa333;
+}
+.category5 .category-left{
+  color: #ffe866;
+  background-color: #ffe866;
+}
+.category0 .category-check{
+  color: #45cc8b;
+}
+.category3 .category-check{
+  color: #00ccbb;
+}
+.category6 .category-check{
+  color: #00c3e6;
+}
+.category7 .category-check{
+  color:#eb99ff;
+}
+.category8 .category-check{
+  color: #555555;
+}
+.category1 .category-check{
+  color: #ff6670;
+}
+.category4 .category-check{
+  color:#ff80b7;
+}
+.category2 .category-check{
+  color: #ffa333;
+}
+.category5 .category-check{
+  color: #ffe866;
+}
+.categorys{
+  position: relative;
+  float: left;
+  width: 33.333333%;
+  color: #777777;
+  height:36px;
+  background-color: rgba(255,255,255,0);
+  font-size:13px;
+}
+.category-change-left{
+  position: fixed;
+  top:50%;
+  left: 50%;
+  margin-top:-115px;
+  margin-left: -275px;
+  height: 230px;
+  width:0;
+  z-index: 40;
+  background: white;
+}
+.category-change-right{
+  position: fixed;
+  top:50%;
+  right: 50%;
+  margin-top:-115px;
+  margin-right: -275px;
+  height: 230px;
+  width:0;
+  z-index: 40;
+  background: white;
+}
+/*メモ*/
+.form-memo{
+  padding: 3px 20px;
+}
+.column-memo{
+  height: 60px;
+  width:50%;
+  color: white;
+}
+.form-memo label{
+  width:30%;
+}
+.column-form{
+  display:none;
+}
+/*送信*/
+.form-submit{
+  position:absolute;
+  width:20%;
+  text-align: center;
+  bottom: 15px;
+  right:0;
+  z-index: 20;
+}
+.form-submit input{
+  transition: all 0.6s;
+  background-color: rgba(255,255,255,0.2);
+  color: white;
+  width:70%;
+  border:solid 1px white;
+  border-radius: 2px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  cursor: pointer;
+}
+.create-submit input:hover{
+  background-color: rgba(255,255,255,0.6);
+  color: rgba(0, 167, 179,1);
+}
+.edit-submit input:hover{
+  background-color: rgba(255,255,255,0.6);
+  color: rgba(200, 81, 121,1);
+}

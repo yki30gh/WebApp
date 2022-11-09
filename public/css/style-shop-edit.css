@@ -1,0 +1,219 @@
+/*レイアウト*/
+*{
+  box-sizing: border-box;
+}
+body{
+  background-image:url(/images/background/423582_m.jpg);
+  background-position: center;
+  background-size: cover;
+}
+/*タイトルlogo*/
+.box1{
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  border-bottom: solid 1px black;
+  background-color: rgba(255,255,255,0.8);
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.box1 a{
+  text-decoration: none;
+  color: black;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 15px;
+}
+.fa-apple-alt{
+  padding-right: 6px;
+}
+.fa-bars{
+  float: right;
+  font-size: 15px;
+  cursor: pointer;
+  padding-right:6px;
+  padding-top:5px;
+}
+/*ショップ一覧*/
+.boxB{
+  padding-top:60px;
+  padding-right:13%;
+  padding-left:13%;
+  padding-bottom: 60px;
+}
+.boxA{
+
+  box-shadow:0 0 4px #696969;
+  border-radius:2px;
+}
+.header{
+  background-image: url(/images/icon-image/01.jpg);
+  background-position: center;
+  background-size: cover;
+  color:rgba(255,255,255,1);
+  font-size:20px;
+  padding:9px 0 8px 0;
+  font-family: 'Balsamiq Sans', cursive;
+  border-radius:2px 2px 0 0;
+}
+.fa-shopping-cart{
+  padding:0 15px;
+}
+.fa-plus{
+  padding-right:5px;
+  font-size:12px;
+}
+.new{
+  float:right;
+  margin:-2px 10px 0 0;
+  padding:4px 10px;
+  font-size:12px;
+  background-color:rgba(255,255,255,0.9);
+  border-radius:20px;
+  color:#00a381;
+  cursor: pointer;
+}
+.new:hover{
+  background-color:rgba(255,255,255,1);
+}
+.body{
+  background-color:rgba(255,255,255,0.7);
+  border-radius:0 0 2px 2px;
+}
+ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+li{
+  padding:10px 20px;
+  border-bottom:solid 1px #80aba9;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color:#474a4d;
+}
+li::after{
+  content:"";
+  display:block;
+  clear:both;
+}
+.name-column{
+  float:left;
+  width:55%;
+}
+.category-column{
+  float:left;
+  width:25%;
+}
+.delete{
+  float:right;
+  width:10%;
+  font-size: 14px;
+  color: #88bfbf;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family:'Kosugi Maru', sans-serif;
+  line-height:23px;
+}
+.data{
+  padding-top:1px;
+}
+.data i{
+  color:#88bfbf;
+  padding-right:10px;
+}
+.edit{
+  float:right;
+  width:10%;
+  font-size: 14px;
+  padding-top:1px;
+  color: #88bfbf;
+  cursor: pointer;
+  text-decoration:none;
+  font-family:'Kosugi Maru', sans-serif;
+  line-height:23px;
+}
+.edit{
+  position: fixed;
+  width:100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+.modal{
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  background-color:rgba(255,255,255,0.8);
+  padding: 20px 0 20px;
+  border-radius: 5px;
+  box-shadow:0 0 3px #333333;
+  width: 60%;
+  height: auto;
+  text-align: center;
+}
+.fa-times {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  color: rgba(128, 128, 128, 0.46);
+  font-size:13px;
+  cursor: pointer;
+}
+.modal h2{
+  margin-top:5px;
+  margin-bottom:15px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color:#00ac97;
+  text-shadow:0 0 2px #ffffff;
+}
+.form-control{
+  width: 70%;
+  margin-bottom: 20px;
+  font-size: 12px;
+  padding: 12px 12px;
+  border: 1px solid #d0d5d8;
+  border-radius: 5px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+.submit{
+  width: 40%;
+  margin-bottom: 15px;
+  font-size: 16px;
+  padding: 12px 12px;
+  background-image:url(/images/icon-image/01.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  color:white;
+  font-family: 'Kosugi Maru', sans-serif;
+  cursor:pointer;
+}
+.submit:hover{
+  font-size:18px;
+  padding: 11px 11px;
+}
+/*もどるボタン*/
+.back{
+  padding-bottom:5px;
+}
+.back a{
+  color:#00552e;
+  text-decoration:none;
+  font-family:'M PLUS Rounded 1c', sans-serif;
+}
+.back i{
+  padding-right:5px;
+}
+.back a:hover{
+  color:#028760;
+}

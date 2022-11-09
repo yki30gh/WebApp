@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>LIST APP</title>
+  <meta name="viewpoint" content="width=device-width">
+  <link rel="stylesheet" href="/css/style-expense-edit.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Varela+Round&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="box1">
+    <a href="/"> <i class="fas fa-apple-alt"></i>MY LIST APP</a><i class="fas fa-bars"></i>
+  </div>
+  <div class="boxB">
+    <div class="back">
+      <a href="/money-top"><i class="far fa-hand-point-left"></i>BACK</a>
+    </div>
+    <div class="boxA">
+      <div class="header">
+        <% var today=new Date()%>
+        <% var thisMonth=today.getMonth() + 1%>
+        <span><i class="fas fa-yen-sign"></i></span>EXPENDITURE<span class="thisMonth">【<%=thisMonth+'月'%>】</span>
+        <span class="search-icon"><i class="fas fa-search"></i></span>
+        <span class="new"><i class="fas fa-plus"></i>新規作成</span>
+      </div>
+      <div class="create">
+        <div class="modal">
+          <div class="create-close-modal">
+            <a href="/money-expense-index"><i class="fa fa-2x fa-times"></i></a>
+          </div>
+          <h2>リスト編集</h2>
+          <form action="/expense-update/<%=moneylist.id%>" method="post">
+            <input class="form-control" type="text" name="moneylistName" value="<%= moneylist.name%>">
+            <input class="form-control" type="number" min="1" name="moneylistPrice" value="<%= moneylist.price%>">
+            <input class="form-control" type="text" name="moneylistCategory" value="<%= moneylist.category%>">
+            <% var mm=("0"+(moneylist.date.getMonth()+1)).slice(-2)%>
+            <% var dd=("0"+moneylist.date.getDate()).slice(-2)%>
+            <% var yyyy=moneylist.date.getFullYear()%>
+            <input class="form-control" type="date" name="moneylistDate" value="<%= yyyy+'-'+mm+'-'+dd%>">
+            <input class="form-control" type="text" name="moneylistMethod" value="<%= moneylist.method%>">
+            <input class="submit" type="submit" value="更新する">
+          </form>
+        </div>
+      </div>
+      <div class="search">
+        <div class="">
+          <div class="search-close-modal">
+            <i class="fa fa-2x fa-times"></i>
+          </div>
+          <h2>カテゴリー検索</h2>
+          <form action="/shop-search" method="post">
+            <input class="form-control" type="text" name="searchCategory" placeholder="カテゴリ">
+            <input class="submit" type="submit" value="検索する">
+          </form>
+        </div>
+      </div>
+
+      <div class="body" id="expense-body">
+
+      </div>
+    </div>
+
+  </div>
+  <script src="/script/script-task-shop.js"></script>
+</body>

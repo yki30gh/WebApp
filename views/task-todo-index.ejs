@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>LIST APP</title>
+  <meta name="viewpoint" content="width=device-width">
+  <link rel="stylesheet" href="/css/style-todo-index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Varela+Round&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="box1">
+    <a href="/"> <i class="fas fa-apple-alt"></i>MY LIST APP</a><i class="fas fa-bars"></i>
+  </div>
+  <div class="boxB">
+    <div class="back">
+      <a href="/task-top"><i class="far fa-hand-point-left"></i>BACK</a>
+    </div>
+  <div class="boxA">
+    <div class="header">
+      <span><i class="fas fa-clipboard-check"></i></span>TO DO LIST<span class="new"><i class="fas fa-plus"></i>新規作成</span>
+    </div>
+    <div class="create">
+      <div class="modal">
+        <div class="create-close-modal">
+          <i class="fa fa-2x fa-times"></i>
+        </div>
+        <h2>新規作成</h2>
+        <form action="/todo-create" method="post">
+          <input class="form-control" type="text" name="todolistName" placeholder="リスト名">
+          <input class="form-control" type="date" name="todolistDate" placeholder="日付">
+          <input class="submit" type="submit" value="作成する">
+        </form>
+      </div>
+    </div>
+    <div class="body">
+      <ul>
+        <% todolists.forEach((todolist) => { %>
+          <% const month = todolist.date.getMonth() + 1 %>
+          <% const day = todolist.date.getDate() %>
+        <li>
+          <div class="data">
+            <span class="date-column"><%= month + '/' + day%></span><span class="name-column"><%= todolist.name %></span>
+          </div>
+          <div class="menu">
+            <form action="/todo-delete/<%= todolist.id %>" method="post">
+              <input class="delete" type="submit" value="完了">
+            </form>
+            <a class="edit" href="/todo-edit/<%= todolist.id %>">編集</a>
+          </div>
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </div>
+
+  </div>
+  <script src="/script/script-task-shop.js"></script>
+</body>

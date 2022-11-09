@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>LIST APP</title>
+  <meta name="viewpoint" content="width=device-width">
+  <link rel="stylesheet" href="/css/style-income-index.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Varela+Round&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Kosugi+Maru&display=swap" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="box1">
+    <a href="/"> <i class="fas fa-apple-alt"></i>MY LIST APP</a><i class="fas fa-bars"></i>
+  </div>
+  <div class="boxB">
+    <div class="back">
+      <a href="/money-top"><i class="far fa-hand-point-left"></i>BACK</a>
+    </div>
+    <div class="boxA">
+      <div class="header">
+        <% var today=new Date()%>
+        <% var thisMonth=today.getMonth() + 1%>
+        <span><i class="fas fa-wallet"></i></span>INCOME
+        <span class="new"><i class="fas fa-plus"></i>新規作成</span>
+      </div>
+      <div class="create">
+        <div class="modal">
+          <div class="create-close-modal">
+            <i class="fa fa-2x fa-times"></i>
+          </div>
+          <h2>新規作成</h2>
+          <form action="/income-create" method="post">
+            <input class="form-control" type="text" name="moneylistName" placeholder="リスト名">
+            <input class="form-control" type="number" min="1" name="moneylistPrice" placeholder="金額">
+            <input class="form-control" type="date" name="moneylistDate" placeholder="日付">
+            <input class="submit" type="submit" value="作成する">
+          </form>
+        </div>
+      </div>
+      <div class="filter">
+        <div class="box4 filter-change"><span>並び替え<i class="fas fa-angle-double-down"></i></span>
+          <ul>
+            <li><a href="/expense-new"><i class="fas fa-caret-right"></i>日付（新しい順）</a></li>
+            <li><a href="/expense-old"><i class="fas fa-caret-right"></i>日付（古い順）</a></li>
+            <li><a href="/expense-hight"><i class="fas fa-caret-right"></i>値段（高い順）</a></li>
+            <li><a href="/expense-low"><i class="fas fa-caret-right"></i>値段（低い順）</a></li>
+          </ul>
+        </div>
+        <div class="box5">
+          <%const thisMonthList = moneylists.filter( function (moneylist) {%>
+          <% const month = moneylist.date.getMonth() + 1 %>
+          <% return month==thisMonth %>
+          <%})%>
+          <% const total = thisMonthList.reduce((p, x) => p + x.price, 0)%>
+          <span>今月の収入<i class="fas fa-caret-right"></i></span><%= total%>円
+        </div>
+      </div>
+      <div class="body" id="income-body">
+        <ul>
+          <% moneylists.forEach((moneylist) => { %>
+          <% const month = moneylist.date.getMonth() + 1 %>
+          <% const day = moneylist.date.getDate() %>
+
+          <% var today=new Date()%>
+          <% var thisMonth=today.getMonth() + 1%>
+          <li>
+            <div class="data">
+              <span class="name-column"><%= moneylist.name %></span>
+              <span class="price-column"><%= moneylist.price %>円</span>
+              <span class="date-column"><i class="far fa-calendar-alt"></i><%= month + '/' + day%></span>
+            </div>
+            <div class="menu">
+              <div class="menu-delete">
+                <form action="/income-delete/<%= moneylist.id %>" method="post">
+                  <input class="delete" type="submit" value="削除">
+                </form>
+              </div>
+              <div class="menu-edit">
+                <a class="edit" href="/income-edit/<%= moneylist.id %>">編集</a>
+              </div>
+            </div>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+      <div class="more_btn"><i class="fas fa-angle-double-down"></i>もっと見る<i class="fas fa-angle-double-down"></i></div>
+    </div>
+
+  </div>
+  <script src="/script/script-task-shop.js"></script>
+</body>

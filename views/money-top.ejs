@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <title>LIST APP</title>
+  <meta name="viewpoint" content="width=device-width">
+  <link rel="stylesheet" href="/css/style-money-top.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Varela+Round&display=swap" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+1p&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+
+<body>
+  <div class="box1">
+    <a href="/"> <i class="fas fa-apple-alt"></i>MY LIST APP</a><i class="fas fa-bars"></i>
+  </div>
+  <div class="boxB">
+    <div class="boxA">
+      <div class="box2 shop">
+        <span><i class="fas fa-yen-sign"></i></span>
+        <a href="/money-expense-index">EXPENDITURE</a>
+      </div>
+      <div class="box2 to-do">
+        <span><i class="fas fa-wallet"></i></span>
+        <a href="/money-income-index">INCOME</a>
+      </div>
+      <div class="box2 to-do">
+        <span><i class="fab fa-cc-jcb"></i></span>
+        <a href="/money-credit-index">CREDIT CARD</a>
+      </div>
+    </div>
+    <div class="boxC">
+      <% var today=new Date()%>
+      <% var thisMonth=today.getMonth() + 1%>
+      <% var lastMonth=today.getMonth()%>
+      <%const thisMexLists = moneylists.filter( function (moneylist) {%>
+      <% const month = moneylist.date.getMonth() + 1 %>
+      <% return month==thisMonth && moneylist.form==0%>
+      <%})%>
+      <%const lastMonthLists = moneylists.filter( function (moneylist) {%>
+      <% const month = moneylist.date.getMonth()+1 %>
+      <% return month==lastMonth && moneylist.form==0%>
+      <%})%>
+      <% const totalThisEx = thisMexLists.reduce((p, x) => p + x.price, 0)%>
+      <% const totalLast = lastMonthLists.reduce((p, x) => p + x.price, 0)%>
+      <div class="box6 total-expense">
+        <div class="total-body">
+          <div class="total-thisMonth"><span class="total-this-title">今月の支出<i class="fas fa-caret-right"></i></span>
+            <p><span class="total-this-price"><%=totalThisEx%></span>円</p>
+          </div>
+          <div class="total-lastMonth"><span class="total-last-title">先月の支出<i class="fas fa-caret-right"></i></span>
+            <span class="sss"><span class="total-last-price"><%=totalLast%></span>円</span>
+          </div>
+        </div>
+        <div class="expense-category-body">
+          <ul>
+            <%const filterCategory=function(name){%>
+            <%const categoryLists = thisMexLists.filter( function (thisMexList) {%>
+            <% return thisMexList.category==name%>
+            <%})%>
+            <% const totalPrice = categoryLists.reduce((p, x) => p + x.price, 0)%>
+            <% return totalPrice%>
+            <%}%>
+            <li><span class="category-name">生活費</span><span class="price-number"><%=filterCategory("生活費")%></span>円</span></li>
+            <li><span class="category-name">食費</span><span class="price-name"><span class="price-number"><%=filterCategory("食費")%></span>円</span></li>
+            <li><span class="category-name">日用品</span><span class="price-name"><span class="price-number"><%=filterCategory("日用品")%></span>円</span></li>
+            <li><span class="category-name">教育費</span><span class="price-name"><span class="price-number"><%=filterCategory("教育費")%></span>円</span></li>
+            <li><span class="category-name">交通費</span><span class="price-name"><span class="price-number"><%=filterCategory("交通費")%></span>円</span></li>
+            <li><span class="category-name">その他</span><span class="price-name"><span class="price-number"><%=filterCategory("その他")%></span>円</span></li>
+          </ul>
+        </div>
+      </div>
+      <%const thisMinLists = moneylists.filter( function (moneylist) {%>
+      <% const month = moneylist.date.getMonth() + 1 %>
+      <% return month==thisMonth && moneylist.form==1%>
+      <%})%>
+      <% const totalThisIn = thisMinLists.reduce((p, x) => p + x.price, 0)%>
+      <div class="box6 total-income">
+        <div class="total-body">
+          <div class="total-thisMonth"><span class="total-this-title">今月の収入<i class="fas fa-caret-right"></i></span>
+            <p><span class="total-this-price"><%=totalThisIn%></span>円</p>
+          </div>
+          <div class="total-lastMonth"><span class="total-last-title">先月の収入<i class="fas fa-caret-right"></i></span>
+            <span class="sss"><span class="total-last-price"><%=totalLast%></span>円</span>
+          </div>
+        </div>
+        <div class="spacing"><i class="fas fa-star-of-life"></i><i class="fas fa-star-of-life"></i><i class="fas fa-star-of-life"></i></div>
+        <div class="total-body">
+          <% const thisProfit=totalThisIn-totalThisEx%>
+          <div class="total-thisMonth"><span class="total-this-title">今月の貯金額<i class="fas fa-caret-right"></i></span>
+            <p><span class="total-this-price"><%=thisProfit%></span>円</p>
+          </div>
+          <div class="total-lastMonth"><span class="total-last-title">先月の貯金額<i class="fas fa-caret-right"></i></span>
+            <span class="sss"><span class="total-last-price"><%=totalLast%></span>円</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script></script>
+</body>

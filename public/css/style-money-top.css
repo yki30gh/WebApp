@@ -1,0 +1,235 @@
+/*レイアウト*/
+*{
+  box-sizing: border-box;
+}
+body{
+  background-image:url(/images/background/423582_m.jpg);
+  background-position: center;
+  background-size: cover;
+  margin:0;
+}
+.boxB::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.boxA{
+  float: left;
+  width:70%;
+}
+.boxC{
+  float: left;
+  width:30%;
+  padding-top: 90px;
+  padding-right: 5%;
+  padding-bottom: 80px;
+}
+/*タイトルlogo*/
+.box1{
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  border-bottom: solid 1px black;
+  background-color: rgba(255,255,255,0.8);
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.box1 a{
+  text-decoration: none;
+  color: black;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 15px;
+  cursor: pointer;
+}
+.fa-apple-alt{
+  padding-right: 6px;
+}
+.fa-bars{
+  float: right;
+  font-size: 15px;
+  cursor: pointer;
+  padding-right:6px;
+  padding-top:5px;
+}
+/*list一覧*/
+.boxA{
+  padding: 60px 12%;
+  padding-bottom: 30px
+}
+.box2{
+  transition: all 0.2s;
+  height:100px;
+  background-color: rgba(255,255,255,0.7);
+  margin:10% 0;
+  border-radius: 10px;
+  box-shadow: 0 0 3px #696969;
+}
+.box2::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.box2 span{
+  display: block;
+  float: left;
+  width:14%;
+  height:100px;
+  line-height: 100px;
+  background-image: url(/images/icon-image/02.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px 0 0 10px;
+  text-align: center;
+}
+.box2 i{
+  color: white;
+  font-size: 27px;
+}
+.box2 a{
+  transition: all 0.2s;
+  display:block;
+  float: left;
+  padding-left: 15px;
+  width:86%;
+  height: 100px;
+  line-height: 100px;
+  border-radius:0 10px 10px 0;
+  text-decoration: none;
+  background-color: rgba(255,255,255,0.6);
+  font-size: 27px;
+  color: black;
+  font-family: 'Questrial', sans-serif;
+}
+.shop a:hover{
+  background-color: rgba(137, 195, 235, 0.2);
+  color: white;
+  text-shadow: 0 0 3px black;
+}
+.to-do a:hover{
+  background-color: rgba(137, 195, 235, 0.2);
+  color: white;
+  text-shadow: 0 0 3px black;
+}
+/*ツール*/
+.box6{
+  background-image: url(/images/icon-image/02.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  box-shadow: 0 0 3px #999999;
+  padding: 20px 15px 20px 15px;
+
+}
+.total-body{
+  border: solid 1px #007bbb;
+  border-radius: 2px;
+  box-shadow: 0 0 2px white;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color: white;
+}
+.spacing{
+  letter-spacing: 30px;
+  text-align: center;
+  padding: 16px 0 16px 18px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color: white;
+}
+.total-this-price{
+  font-size: 30px;
+}
+.total-this-title{
+  display: block;
+  padding-left: 6px;
+  padding-top: 6px;
+}
+.total-thisMonth{
+  background-color: rgba(255,255,255,0.4);
+  text-shadow: 0 0 3px #444444;
+}
+.total-thisMonth i{
+font-size: 16px;
+padding-left: 5px;
+}
+.total-thisMonth p{
+  text-align: center;
+  margin:10px 0 0 0;
+}
+.total-lastMonth{
+  border-top: dashed 2px rgba(0, 123, 187, 0.4);
+  display: block;
+  padding: 6px 0 4px 0;
+  font-size: 11px;
+  text-align: center;
+  background-color: rgba(255,255,255,0.3);
+  text-shadow: 0 0 3px #444444;
+}
+.total-lastMonth i{
+  font-size: 11px;
+  padding-left: 5px;
+}
+.total-last-price {
+  font-size: 15px;
+}
+.expense-category-body{
+  color: white;
+  text-shadow: 0 0 2px #444444;
+  font-size: 16px;
+  padding: 10px;
+  font-family: 'M PLUS 1p', sans-serif;
+}
+.expense-category-body ul{
+  list-style: none;
+  padding: 0;
+  margin:0 0 -10px 0;
+}
+.expense-category-body li::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.category-name{
+  display: block;
+  float: left;
+  width:50%;
+  margin-top:4px;
+  text-align: center;
+}
+.price-name{
+  display: block;
+  float: left;
+  width:50%;
+}
+.price-number{
+  font-size: 19px;
+}
+.total-income{
+  margin-top: 15px;
+}
+@media(max-width:800px) {
+  .boxA{
+    width:100%;
+  }
+  .boxC{
+    width:100%;
+    padding: 0 6% 80px 6%;
+  }
+  .boxC::after{
+    content: "";
+    display: block;
+    clear: both;
+  }
+  .box6{
+    float: left;
+    width:45%;
+  }
+  .total-expense{
+    margin-right: 6%;
+    margin-left: 2%;
+  }
+  .total-income{
+    margin:0;
+  }
+}

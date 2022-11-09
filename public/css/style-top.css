@@ -1,0 +1,157 @@
+/*レイアウト*/
+*{
+  box-sizing: border-box;
+}
+body{
+  background-image:url(/images/background/423582_m.jpg);
+  background-position: center;
+  background-size: cover;
+  margin:0;
+}
+/*タイトルlogo*/
+.box1{
+  position: fixed;
+  z-index: 100;
+  top: -100px;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  height:80px;
+  border-bottom: solid 1px black;
+  background-color: rgba(255,255,255,0.8);
+  padding-bottom: 7px;
+}
+.title-logo{
+  position: fixed;
+  top:-150px;
+  left: 15px;
+  font-size: 20px;
+  font-family: 'Varela Round', sans-serif;
+
+}
+.fa-apple-alt{
+  padding-right: 10px;
+}
+
+/*基本レイアウト*/
+.boxA::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.boxA{
+  height:500px;
+  padding: 50px 0;
+}
+.box2{
+  float: left;
+  width:50%;
+  height:200px
+}
+.box2 a{
+  display: block;
+  text-decoration: none;
+}
+/*メニュー一覧*/
+.btn{
+  transition: all 0.3s;
+  color: #ffffff;
+  font-size: 30px;
+  font-family: 'Balsamiq Sans', cursive;
+  text-shadow: 0 0 2px white;
+  letter-spacing: 3px;
+  text-align:center;
+  line-height: 120px;
+  border-radius: 20px;
+  box-shadow: 0 0 5px #696969;
+}
+.task{
+  position: relative;
+}
+.money{
+  position: relative;
+}
+.Calendar{
+  position: relative;
+}
+.health{
+  position: relative;
+}
+.btn-task{
+  position: absolute;
+  background-image:url(/images/icon-image/01.jpg);
+  background-position: center;
+  background-size: cover;
+  top:25%;
+  bottom: 15%;
+  right: 12%;
+  left:25%;
+}
+.btn-task:hover{
+  top:24.5%;
+  bottom: 14.5%;
+  right: 11.5%;
+  left:24.5%;
+  font-size: 35px;
+  text-shadow: 0 0 3px white;
+}
+.btn-money{
+  position: absolute;
+  background-image:url(/images/icon-image/02.jpg);
+  background-position: center;
+  background-size: cover;
+  bottom: 15%;
+  top:25%;
+  left: 12%;
+  right:25%;
+}
+.btn-money:hover{
+  top:24.5%;
+  bottom: 14.5%;
+  left: 11.5%;
+  right:24.5%;
+  font-size: 35px;
+  text-shadow: 0 0 3px white;
+}
+.btn-Calendar{
+  position: absolute;
+  background-image:url(/images/icon-image/04.jpg);
+  background-position: center;
+  background-size: cover;
+  top: 15%;
+  bottom: 25%;
+  right: 12%;
+  left:25%;
+}
+.btn-Calendar:hover{
+  bottom:24.5%;
+  top: 14.5%;
+  right: 11.5%;
+  left:24.5%;
+  font-size: 35px;
+  text-shadow: 0 0 3px white;
+}
+.btn-health{
+  position: absolute;
+  background-image:url(/images/icon-image/05.jpg);
+  background-position: center;
+  background-size: cover;
+  top: 15%;
+  bottom:25%;
+  left: 12%;
+  right:25%;
+}
+.btn-health:hover{
+  bottom:24.5%;
+  right: 14.5%;
+  left: 11.5%;
+  right:24.5%;
+  font-size: 35px;
+  text-shadow: 0 0 3px white;
+}
+/*----------- カレンダー ----------*/
+.boxB{
+  height:400px;
+  background-color: rgba(255,255,255,0.8);
+  box-shadow: 0 0 3px white;
+}

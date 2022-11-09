@@ -1,0 +1,364 @@
+/*レイアウト*/
+*{
+  box-sizing: border-box;
+}
+body{
+  background-image:url(/images/background/423582_m.jpg);
+  background-position: center;
+  background-size: cover;
+}
+/*-----------タイトルlogo----------*/
+.box1{
+  position: fixed;
+  top: 0;
+  left: 0;
+  margin: 0;
+  width: 100%;
+  border-bottom: solid 1px black;
+  background-color: rgba(255,255,255,0.8);
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  z-index: 100;
+}
+.box1 a{
+  text-decoration: none;
+  color: black;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 15px;
+}
+.fa-apple-alt{
+  padding-right: 6px;
+}
+.fa-bars{
+  float: right;
+  font-size: 15px;
+  cursor: pointer;
+  padding-right:6px;
+  padding-top:5px;
+}
+/*----------- 一覧----------*/
+.boxB{
+  padding-top:60px;
+  padding-right:13%;
+  padding-left:13%;
+  padding-bottom: 60px;
+}
+.boxA{
+
+  box-shadow:0 0 4px #696969;
+  border-radius:2px;
+}
+/*---------- ヘッダー -----------*/
+.header{
+  background-image: url(/images/icon-image/02.jpg);
+  background-position: center;
+  background-size: cover;
+  color:rgba(255,255,255,1);
+  font-size:20px;
+  padding:9px 0 8px 0;
+  font-family: 'Balsamiq Sans', cursive;
+  border-radius:2px 2px 0 0;
+}
+.fa-yen-sign{
+  padding:0 15px;
+}
+.fa-plus{
+  padding-right:5px;
+  font-size:12px;
+}
+.thisMonth{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+.new{
+  float:right;
+  margin:0 10px 0 0;
+  padding:6px 10px;
+  font-size:12px;
+  background-color:rgba(255,255,255,0.9);
+  border-radius:20px;
+  color:#4496d3;
+  cursor: pointer;
+  font-family:'Kosugi Maru', sans-serif;
+}
+.search-icon{
+  float:right;
+  padding-right: 10px;
+  padding-top: 2px;
+  font-size:19px;
+  cursor: pointer;
+  opacity: 0.8;
+
+}
+
+.new:hover{
+  background-color:rgba(255,255,255,1);
+}
+.search-icon:hover{
+  opacity: 1;
+}
+/*----------メニュー----------*/
+.filter{
+  height:30px;
+  background-color:rgba(255,255,255,0.9);
+  border-bottom: double 1px #5383c3;
+}
+.filter::after{
+  content: "";
+  display: block;
+  clear: both;
+}
+.box4{
+  float: left;
+  position: relative;
+  padding-left: 15px;
+  padding-right:10px;
+  cursor: pointer;
+}
+.box4 span{
+  font-size: 12px;
+  line-height: 30px;
+  color: #727171;
+}
+.box4 i{
+  padding-left: 5px;
+}
+.filter ul{
+  display: none;
+  position:absolute;
+  top:30px;
+  left: 5px;
+  list-style: none;
+  margin:0;
+  padding-left: 7px;
+  background-color: rgba(123, 124, 125, 0.9);
+  color: white;
+  border-radius: 0 0 2px 2px;
+  box-shadow: 0 0 2px #696969;
+  padding-top:5px;
+  padding-bottom:5px;
+}
+.filter-category ul{
+  width:90px;
+}
+.filter-change ul{
+  width:150px;
+}
+.filter li{
+  font-size: 13px;
+}
+.filter i{
+  padding-right: 6px;
+}
+.filter a{
+  display: block;
+  text-decoration: none;
+  color: white;
+}
+.filter li:hover{
+  background-color: rgba(255,255,255,0.9);
+  color: #696969;
+}
+.filter a:hover{
+  color:#696969;
+}
+.box5{
+  float: right;
+  padding-right: 15px;
+  line-height: 30px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color:#19448e;
+}
+.box5 span{
+  font-size: 13px;
+  line-height: 30px;
+  color: #474a4d;
+}
+.box5 i{
+  padding-left: 5px;
+  padding-right: 7px;
+}
+/*----------body----------*/
+.expense-body li.is-hidden {
+    display:none;
+}
+.body{
+  background-color:rgba(255,255,255,0.9);
+  border-radius:0 0 2px 2px;
+}
+.body ul{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.body li{
+  padding:10px 20px;
+  border-bottom:solid 1px #5383c3;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color:#474a4d;
+}
+.body li::after{
+  content:"";
+  display:block;
+  clear:both;
+}
+.data{
+  float:left;
+  width:80%;
+  border-right: dashed 2px #59b9c6;
+}
+.menu{
+  float:left;
+  width:20%;
+  text-align: center;
+}
+.data::after{
+  content:"";
+  display:block;
+  clear:both;
+}
+.data span{
+  float: left;
+  width:50%;
+}
+.name-column,.price-column{
+  padding-bottom: 5px;
+}
+.category-column,.date-column{
+  font-size: 15px;
+  padding-left: 10px;
+}
+.menu-delete{
+  padding-bottom:5px;
+}
+.delete{
+  font-size: 14px;
+  color: #80989b;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family:'Kosugi Maru', sans-serif;
+}
+.data i{
+  color:#507ea4;
+  padding-right:5px;
+  font-size: 14px;
+}
+.edit{
+  font-size: 14px;
+  color: #80989b;
+  cursor: pointer;
+  text-decoration:none;
+  font-family:'Kosugi Maru', sans-serif;
+  padding-left: 3%;
+}
+.create{
+  display:none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+.search{
+  display:none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+}
+.modal{
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  background-color:rgba(255,255,255,0.8);
+  padding: 20px 0 20px;
+  border-radius: 5px;
+  box-shadow:0 0 3px #333333;
+  width: 60%;
+  height: auto;
+  text-align: center;
+}
+.fa-times {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  color: rgba(128, 128, 128, 0.46);
+  font-size:13px;
+  cursor: pointer;
+}
+.modal h2{
+  margin-top:5px;
+  margin-bottom:15px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  color:#4496d3;
+  text-shadow:0 0 2px #ffffff;
+}
+.form-control{
+  width: 70%;
+  margin-bottom: 20px;
+  font-size: 13px;
+  padding: 10px 10px;
+  border: 1px solid #d0d5d8;
+  border-radius: 5px;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+.submit{
+  width: 40%;
+  margin-bottom: 15px;
+  font-size: 16px;
+  padding: 12px 12px;
+  background-image:url(/images/icon-image/02.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+  color:white;
+  font-family: 'Kosugi Maru', sans-serif;
+  cursor:pointer;
+}
+.submit:hover{
+  font-size:18px;
+  padding: 11px 11px;
+}
+/*もっと見るボタン*/
+.more_btn{
+  text-align: center;
+  font-family:'Kosugi Maru', sans-serif;
+  padding: 8px 0;
+  font-size: 13px;
+  background-color: rgba(68, 97, 123, 0.6);
+  color: rgba(255,255,255,0.7);
+  cursor: pointer;
+}
+.more_btn:hover{
+  background-color: rgba(68, 97, 123, 0.3);
+  text-shadow: 0 0 2px #222222;
+  color: white;
+}
+.more_btn i{
+  padding: 0 8px;
+}
+/*もどるボタン*/
+.back{
+  padding-bottom:5px;
+}
+.back a{
+  color:#19448e;
+  text-decoration:none;
+  font-family:'M PLUS Rounded 1c', sans-serif;
+}
+.back i{
+  padding-right:5px;
+}
+.back a:hover{
+  color:#008899;
+}
