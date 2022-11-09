@@ -31,7 +31,35 @@ table:<br>
 | todolists         |<br>
 +-------------------+<br>
 
-◆
+◆使用手順<br>
+①mySQLでデータベース作成<br>
+CREATE DATABASE listapp;　　<br>
+
+$ use listapp;<br>
+
+$CREATE TABLE calendar_category(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,category0 text,category1 text ,category2 text ,category3 text ,category4 text ,category5 text ,category6 text ,category7 text ,category8 text);<br>
+
+$ CREATE TABLE calendars(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,name text,date date,starttime time,endtime time,category decimal(1,0),memo text,form int(11),category_name text,end_date date);<br>
+
+$ CREATE TABLE moneylists(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,name text, form int(11),price int(11),category text,date date,memo text,method text);<br>
+
+$ CREATE TABLE shoplists(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,name text,category text);<br>
+
+$ CREATE TABLE todolists(id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,name text,date date);<br>
+
+②app.jsの必要項目を入力する
+
+②ターミナルでnode.jsを実行
+$ cd フォルダパス<br>
+$ node app.js
+
+
+
+
+
+
+
+
 
 ◆webアプリ説明
 トップページで使用したいツールを選択する<br>
