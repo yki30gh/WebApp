@@ -11,8 +11,8 @@ app.use(express.urlencoded({
 
 const connection = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
-  password: 'Yuki0317',
+  user: 'ユーザー名を入力',
+  password: 'パスワードを入力',
   database: 'listapp'
 });
 connection.connect((err) => {
