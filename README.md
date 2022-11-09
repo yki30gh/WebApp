@@ -17,16 +17,52 @@ Node.js（サーバーサイド ）<br>
 SQL<br>
 
 ◆開発環境<br>
-Atom　1.60.0<br>
+Atom　　Ver 1.60.0<br>
+mysql  Ver 14.14<br>
+
+◆使用するデータベース
+DB:listapp
+table:
++-------------------+
+| calendar_category |
+| calendars         |
+| moneylists        |
+| shoplists         |
+| todolists         |
++-------------------+
+
+
+＊calendar_category
++-----------+---------+------+-----+---------+----------------+
+| Field     | Type    | Null | Key | Default | Extra          |
++-----------+---------+------+-----+---------+----------------+
+| id        | int(11) | NO   | PRI | NULL    | auto_increment |
+| category0 | text    | YES  |     | NULL    |                |
+| category1 | text    | YES  |     | NULL    |                |
+| category2 | text    | YES  |     | NULL    |                |
+| category3 | text    | YES  |     | NULL    |                |
+| category4 | text    | YES  |     | NULL    |                |
+| category5 | text    | YES  |     | NULL    |                |
+| category6 | text    | YES  |     | NULL    |                |
+| category7 | text    | YES  |     | NULL    |                |
+| category8 | text    | YES  |     | NULL    |                |
++-----------+---------+------+-----+---------+----------------+
+
+calendars
 
 ◆webアプリ説明
 トップページで使用したいツールを選択する<br>
 ①Task （一番初めに作ったツール。初めはtaskのみを実装する予定だった）<br>
   ToDoリストを作成できるツール<br>
   右上の新規作成ボタンでリストを登録しする。登録したものは「完了」を押せばリストから消える。<br>
-  コメント：カレンダー同様、カテゴリーを選択式にしてカテゴリ別に表示できる機能を追加したい。<br>
-  　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　そしてカテゴリーは編集できるようにする<br>
+  コメント：　一番初めに取り組んだ作成したツールで、主にsql接続について学べた。<br>
+  
+               
 ②Money（２番目に作成したツール）<br>
-③
-④
+  家計簿をつけるツール<br>
+  expense：支出を管理<br>
+  income:収入を管理<br>
+  credit:クレジットの使用額を管理<br>
+  右上の新規作成ボタンで登録する。
+ 
   
