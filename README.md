@@ -21,34 +21,17 @@ Atom　　Ver 1.60.0<br>
 mysql  Ver 14.14<br>
 
 ◆使用するデータベース
-DB:listapp
-table:
-+-------------------+
-| calendar_category |
-| calendars         |
-| moneylists        |
-| shoplists         |
-| todolists         |
-+-------------------+
+DB:listapp<br>
+table:<br>
++-------------------+<br>
+| calendar_category |<br>
+| calendars         |<br>
+| moneylists        |<br>
+| shoplists         |<br>
+| todolists         |<br>
++-------------------+<br>
 
-
-＊calendar_category
-+-----------+---------+------+-----+---------+----------------+
-| Field     | Type    | Null | Key | Default | Extra          |
-+-----------+---------+------+-----+---------+----------------+
-| id        | int(11) | NO   | PRI | NULL    | auto_increment |
-| category0 | text    | YES  |     | NULL    |                |
-| category1 | text    | YES  |     | NULL    |                |
-| category2 | text    | YES  |     | NULL    |                |
-| category3 | text    | YES  |     | NULL    |                |
-| category4 | text    | YES  |     | NULL    |                |
-| category5 | text    | YES  |     | NULL    |                |
-| category6 | text    | YES  |     | NULL    |                |
-| category7 | text    | YES  |     | NULL    |                |
-| category8 | text    | YES  |     | NULL    |                |
-+-----------+---------+------+-----+---------+----------------+
-
-calendars
+◆
 
 ◆webアプリ説明
 トップページで使用したいツールを選択する<br>
